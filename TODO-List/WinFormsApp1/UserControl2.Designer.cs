@@ -40,6 +40,13 @@
             calendarTitle = new Label();
             button1 = new Button();
             button2 = new Button();
+            textBox1 = new TextBox();
+            btn3 = new Button();
+            label2 = new Label();
+            label10 = new Label();
+            comboBox1 = new ComboBox();
+            label11 = new Label();
+            selectDate = new Label();
             SuspendLayout();
             // 
             // label1
@@ -126,7 +133,7 @@
             // 
             calendarTitle.AutoSize = true;
             calendarTitle.Font = new Font("맑은 고딕", 12F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            calendarTitle.Location = new Point(258, 47);
+            calendarTitle.Location = new Point(258, 24);
             calendarTitle.Name = "calendarTitle";
             calendarTitle.Size = new Size(119, 28);
             calendarTitle.TabIndex = 10;
@@ -134,7 +141,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(531, 45);
+            button1.Location = new Point(531, 22);
             button1.Name = "button1";
             button1.Size = new Size(30, 30);
             button1.TabIndex = 11;
@@ -144,7 +151,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(567, 45);
+            button2.Location = new Point(567, 22);
             button2.Name = "button2";
             button2.Size = new Size(30, 30);
             button2.TabIndex = 12;
@@ -152,10 +159,78 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(85, 355);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(545, 54);
+            textBox1.TabIndex = 13;
+            // 
+            // btn3
+            // 
+            btn3.Location = new Point(536, 415);
+            btn3.Name = "btn3";
+            btn3.Size = new Size(94, 29);
+            btn3.TabIndex = 14;
+            btn3.Text = "저장";
+            btn3.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(25, 371);
+            label2.Name = "label2";
+            label2.Size = new Size(39, 20);
+            label2.TabIndex = 15;
+            label2.Text = "일정";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(255, 326);
+            label10.Name = "label10";
+            label10.Size = new Size(54, 20);
+            label10.TabIndex = 16;
+            label10.Text = "아이콘";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(315, 321);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 17;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(25, 324);
+            label11.Name = "label11";
+            label11.Size = new Size(39, 20);
+            label11.TabIndex = 18;
+            label11.Text = "날짜";
+            // 
+            // selectDate
+            // 
+            selectDate.AutoSize = true;
+            selectDate.Location = new Point(85, 326);
+            selectDate.Name = "selectDate";
+            selectDate.Size = new Size(0, 20);
+            selectDate.TabIndex = 19;
+            selectDate.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // UserControl2
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(selectDate);
+            Controls.Add(label11);
+            Controls.Add(comboBox1);
+            Controls.Add(label10);
+            Controls.Add(label2);
+            Controls.Add(btn3);
+            Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(calendarTitle);
@@ -188,5 +263,12 @@
         private Label calendarTitle;
         private Button button1;
         private Button button2;
+        private TextBox textBox1;
+        private Button btn3;
+        private Label label2;
+        private Label label10;
+        private ComboBox comboBox1;
+        private Label label11;
+        private Label selectDate;
     }
 }

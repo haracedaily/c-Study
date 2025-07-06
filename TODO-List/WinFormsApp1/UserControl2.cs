@@ -18,7 +18,37 @@ namespace WinFormsApp1
         public UserControl2()
         {
             InitializeComponent();
+            comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.Items.AddRange(new string[] {
+                "",
+    "❤️",
+    "⭐",
+    "😂",
+    "😭",
+    "🎵",
+    "⚡",
+    "😡"
+});
+            comboBox1.DrawItem += ComboBox1_DrawItem;
+
             displayDays();
+
+        }
+        private void ComboBox1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            e.DrawBackground();
+
+            string text = comboBox1.Items[e.Index].ToString();
+            // 이모지를 지원하는 폰트 선택
+            using (Font emojiFont = new Font("Segoe UI Emoji", e.Font.Size))
+            {
+                e.Graphics.DrawString(text, emojiFont, Brushes.Black, e.Bounds.Location);
+            }
+
+            e.DrawFocusRectangle();
         }
 
         private void displayDays()
@@ -85,6 +115,7 @@ namespace WinFormsApp1
             {
                 // 클릭된 날짜에 대한 처리 로직을 여기에 추가합니다.
                 MessageBox.Show($"선택한 날짜: {calendarYear}년 {calendarMonth}월 {clickedDate.label1.Text}일");
+                selectDate.Text = $"{calendarYear}년 {calendarMonth}월 {clickedDate.label1.Text}일"; // 선택한 날짜 표시
             }
         }
         private void button2_Click(object sender, EventArgs e)
@@ -118,6 +149,5 @@ namespace WinFormsApp1
                 calendarPan.Controls.Add(dateControl);
             }
         }
-
     }
 }
