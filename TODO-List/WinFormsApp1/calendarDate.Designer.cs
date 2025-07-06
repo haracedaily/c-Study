@@ -48,12 +48,15 @@
             Controls.Add(label1);
             Name = "calendarDate";
             Size = new Size(80, 30);
+            Click += calendarDate_Click;
+            MouseEnter += calendarDate_MouseEnter;
+            MouseLeave += calendarDate_MouseLeave;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        public Label label1;
     }
 }

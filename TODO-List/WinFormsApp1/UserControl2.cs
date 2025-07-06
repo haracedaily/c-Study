@@ -39,6 +39,7 @@ namespace WinFormsApp1
             for (int day = 1; day <= daysInMonth; day++)
             {
                 calendarDate dateControl = new calendarDate();
+                dateControl.OnDateClick += CalendarDate_OnClick;
                 dateControl.SetDate(day);
                 calendarPan.Controls.Add(dateControl);
             }
@@ -70,10 +71,21 @@ namespace WinFormsApp1
             for (int day = 1; day <= daysInMonth; day++)
             {
                 calendarDate dateControl = new calendarDate();
+                dateControl.OnDateClick += CalendarDate_OnClick;
                 dateControl.SetDate(day);
                 calendarPan.Controls.Add(dateControl);
             }
 
+        }
+
+        private void CalendarDate_OnClick(object sender, EventArgs e)
+        {
+            calendarDate clickedDate = sender as calendarDate;
+            if (clickedDate != null)
+            {
+                // 클릭된 날짜에 대한 처리 로직을 여기에 추가합니다.
+                MessageBox.Show($"선택한 날짜: {calendarYear}년 {calendarMonth}월 {clickedDate.label1.Text}일");
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -101,6 +113,7 @@ namespace WinFormsApp1
             for (int day = 1; day <= daysInMonth; day++)
             {
                 calendarDate dateControl = new calendarDate();
+                dateControl.OnDateClick += CalendarDate_OnClick;
                 dateControl.SetDate(day);
                 calendarPan.Controls.Add(dateControl);
             }
