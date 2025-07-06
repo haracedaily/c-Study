@@ -32,6 +32,7 @@
             id = new TextBox();
             pw = new TextBox();
             panel1 = new Panel();
+            button2 = new Button();
             label2 = new Label();
             label1 = new Label();
             panel1.SuspendLayout();
@@ -65,15 +66,26 @@
             // panel1
             // 
             panel1.BackColor = Color.Cornsilk;
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pw);
             panel1.Controls.Add(id);
             panel1.Controls.Add(button1);
-            panel1.Location = new Point(193, 118);
+            panel1.Location = new Point(209, 105);
             panel1.Name = "panel1";
-            panel1.Size = new Size(337, 230);
+            panel1.Size = new Size(340, 240);
             panel1.TabIndex = 3;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(217, 197);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 5;
+            button2.Text = "닫기";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label2
             // 
@@ -99,7 +111,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form2";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -114,5 +128,6 @@
         private Panel panel1;
         private Label label2;
         private Label label1;
+        private Button button2;
     }
 }

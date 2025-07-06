@@ -20,3 +20,5 @@ C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Us
 C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.UserControl2.resources
 C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.UserControl3.resources
 C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.UserControl4.resources
+C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.calendarBlank.resources
+C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.calendarDate.resources

@@ -147,7 +147,9 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "간편 스케줄러";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

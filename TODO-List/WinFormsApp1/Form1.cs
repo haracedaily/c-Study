@@ -126,6 +126,20 @@ namespace WinFormsApp1
                     if (ctrl != sideBtn) // sideBtn은 제외
                         ctrl.Width = 155;  
                 }
+                foreach (Control ctrl in panel2.Controls)
+                {
+                    if (ctrl is UserControl1)
+                    {
+
+                        ctrl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                        ctrl.Location = new Point(200, 100); // UserControl의 위치 설정
+                    }
+                    else
+                    {
+                        ctrl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                        ctrl.Location = new Point(150, 0); // UserControl의 위치 설정
+                    }
+                }   
                 sideBtn.Text = "≡";
                 isCollapsed = false;
             }
@@ -141,6 +155,17 @@ namespace WinFormsApp1
                 {
                     if (ctrl != sideBtn) // sideBtn은 제외
                         ctrl.Width = 0;  
+                }
+                foreach (Control ctrl in panel2.Controls)
+                {
+                    if (ctrl is UserControl1)
+                    {
+                        ctrl.Location = new Point(200, 100); // UserControl의 위치 설정
+                    }
+                    else
+                    {
+                        ctrl.Location = new Point(50, 0); // UserControl의 위치 설정
+                    }
                 }
 
             }
