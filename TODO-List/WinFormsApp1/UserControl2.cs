@@ -56,7 +56,9 @@ namespace WinFormsApp1
 
 
             calendarTitle.Text = $"{calendarYear}년 {calendarMonth}월";
+            calendarPan.Visible = false; // 달력 패널을 보이도록 설정
             calendarPan.Controls.Clear(); // 이전 달력 내용 제거
+            calendarPan.Visible = true; // 달력 패널을 다시 보이도록 설정
             int daysInMonth = DateTime.DaysInMonth(calendarYear, calendarMonth);
             int firstDayOfWeek = (int)new DateTime(calendarYear, calendarMonth, 1).DayOfWeek;
             // 달력의 첫 번째 날을 표시하기 위한 위치 계산
@@ -85,7 +87,9 @@ namespace WinFormsApp1
 
 
             calendarTitle.Text = $"{calendarYear}년 {calendarMonth}월";
+            calendarPan.Visible = false; // 달력 패널을 보이도록 설정
             calendarPan.Controls.Clear(); // 이전 달력 내용 제거
+            calendarPan.Visible = true; // 달력 패널을 다시 보이도록 설정
             int daysInMonth = DateTime.DaysInMonth(calendarYear, calendarMonth);
             int firstDayOfWeek = (int)new DateTime(calendarYear, calendarMonth, 1).DayOfWeek;
             // 달력의 첫 번째 날을 표시하기 위한 위치 계산
