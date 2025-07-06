@@ -19,7 +19,7 @@ namespace WinFormsApp1
 
         public void SetDate(int day)
         {
-            label1.Text = day.ToString()+"일"; // 레이블에 날짜 표시
+            label1.Text = day.ToString(); // 레이블에 날짜 표시
         }
     }
 }
