@@ -23,6 +23,7 @@ namespace WinFormsApp1
         private UserControl nextControl;
         private int opacityValue = 0; // 0~255로 색 투명도 흉내
 
+
         private void StartFadeTransition(UserControl newControl)
         {
             nextControl = newControl;
@@ -69,7 +70,7 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
-
+            
             UserControl1 userControl1 = new UserControl1();
             StartFadeTransition(userControl1);
             //userControl.Dock = DockStyle.Fill; // UserControl을 패널에 꽉 차게 설정

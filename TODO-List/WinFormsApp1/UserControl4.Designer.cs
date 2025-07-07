@@ -43,7 +43,7 @@
             // 
             // UserControl4
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7.5F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
             Name = "UserControl4";

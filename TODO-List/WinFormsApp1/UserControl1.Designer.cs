@@ -34,20 +34,21 @@
             // title
             // 
             title.AutoSize = true;
-            title.Font = new Font("온글잎 공부잘하자나", 48F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            title.Location = new Point(26, 33);
+            title.Font = new Font("Microsoft Sans Serif", 48F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            title.Location = new Point(14, 18);
             title.Name = "title";
-            title.Size = new Size(383, 174);
+            title.Size = new Size(394, 146);
             title.TabIndex = 3;
             title.Text = "C#으로 만드는\r\n간편 스케줄러";
             // 
             // UserControl1
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7.5F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(title);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UserControl1";
-            Size = new Size(440, 231);
+            Size = new Size(432, 182);
             ResumeLayout(false);
             PerformLayout();
         }
