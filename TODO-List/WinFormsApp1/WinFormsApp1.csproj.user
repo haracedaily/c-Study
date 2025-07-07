@@ -16,13 +16,13 @@
     <Compile Update="UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl2.cs">
+    <Compile Update="ScheduleList.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControl3.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl4.cs">
+    <Compile Update="TodoList.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

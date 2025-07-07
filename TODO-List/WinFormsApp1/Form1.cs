@@ -1,21 +1,47 @@
+using DotNetEnv;
+using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
+using System.Security.Policy;
 using System.Windows.Forms;
+using static Supabase.Postgrest.Constants;
 using static WinFormsApp1.Form1;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        private string url;
+        private string key;
+        private Supabase.Client supa;
+
+        [Table("users")]
+        public class Users : BaseModel
+        {
+            [PrimaryKey("id")]
+            [Column("id")]
+            public string id { get; set; }
+
+            [Column("password")]
+            public string password { get; set; }
+
+            [Column("created_at")]
+            public DateTime CreatedAt { get; set; }
+        }
+        private static string? _id;
+        
         private bool isCollapsed = false;
         public class LoginEventArgs : EventArgs
         {
             public string id { get; set; }
             public string pw { get; set; }
-
-            public LoginEventArgs(string ID, string PW)
+            public Form2 form2 { get; set; }
+            public LoginEventArgs(string ID, string PW, Form2 form)
             {
                 id = ID;
                 pw = PW;
+                this.form2 = form;
             }
+            
         }
         private System.Windows.Forms.Timer fadeTimer;
         private int fadeStep = 10;
@@ -67,10 +93,13 @@ namespace WinFormsApp1
             }
         }
 
+        //시작 run start
         public Form1()
         {
+            Env.Load(); // .env 파일 로드
             InitializeComponent();
-            
+            url = Environment.GetEnvironmentVariable("SUPABASE_URL");
+            key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
             UserControl1 userControl1 = new UserControl1();
             StartFadeTransition(userControl1);
             //userControl.Dock = DockStyle.Fill; // UserControl을 패널에 꽉 차게 설정
@@ -78,6 +107,39 @@ namespace WinFormsApp1
             //userControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             //userControl.Location = new Point(200, 100); // UserControl의 위치 설정
             //userControl.BringToFront(); // UserControl을 최상위로 가져오기
+            
+            if (url is not null && key is not null)
+            {
+                var options = new Supabase.SupabaseOptions
+                {
+                    AutoConnectRealtime = true
+                };
+                supa = new Supabase.Client(url, key, options);
+                
+                // Supabase 초기화 (비동기)
+                Task.Run(async () =>
+                {
+                    await supa.InitializeAsync();
+                    // DB 연결 테스트: 예를 들어 users 테이블 조회
+                    //var resp = await supa.From<User>().Get();
+                    ////MessageBox.Show(resp.Models.ToString());
+                    //foreach (var u in resp.Models)
+                    //{
+                    //    MessageBox.Show(u.ToString());
+                    //}
+                    //if (resp.Models != null)
+                    //{
+                    //    foreach (var item in resp.Models)
+                    //        Console.WriteLine(item);
+                    //}
+                });
+
+
+                
+
+            }
+
+
 
         }
 
@@ -90,17 +152,19 @@ namespace WinFormsApp1
                 Form2 form2 = new Form2();
                 // 이벤트 구독
                 form2.OnSubmit += Form2_login;
-
+                form2.OnSignUp += Form2_SignUp;
+                
                 form2.Show(); // 또는 form2.ShowDialog();
             }
             else
             {
+                _id = null;
                 status.Text = "";
                 loginBtn.Text = "로그인"; // 로그인 버튼으로 변경
             }
         }
 
-        private void Form2_login(object sender, LoginEventArgs e)
+        async private void Form2_login(object sender, LoginEventArgs e)
         {
             // 전달받은 값 처리
             if (e.id == "" || e.pw == "")
@@ -110,10 +174,63 @@ namespace WinFormsApp1
             }
             else
             {
-                status.Text = "환영합니다\n" + e.id + "님";
-                loginBtn.Text = "로그아웃"; // 로그아웃 버튼으로 변경
+                var result = await supa
+  .From<Users>()
+  .Select("id, password")
+  .Filter("id", Operator.Equals, e.id)
+  .Get();
+                if(result.Model != null)
+                {
+                    if (result.Model.password == e.pw)
+                    {
+                        _id = e.id;
+                        status.Text = "환영합니다\n" + e.id + "님";
+                        loginBtn.Text = "로그아웃"; // 로그아웃 버튼으로 변경
+                        e.form2.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("비밀번호가 틀렸습니다.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("존재하지 않는 아이디 입니다.");
+                }
             }
         }
+
+        async private void Form2_SignUp(object sender, LoginEventArgs e)
+        {
+            var result  = await supa
+  .From<Users>()
+  .Select("id, password")
+  .Filter("id", Operator.Equals, e.id)
+  .Get();
+
+            if (result.Models.Count > 0)
+            {
+                MessageBox.Show("중복되는 아이디가 있습니다.");
+                return;
+            }
+            else
+            {
+                
+                var data = new Users { 
+                   id = e.id,
+                   password = e.pw,
+                    CreatedAt = DateTime.UtcNow
+                };
+                
+                await supa.From<Users>().Insert(data);
+                MessageBox.Show("성공적으로 회원가입 되었습니다.");
+            }
+
+
+
+        }
+
+
 
         private void sideBtn_Click(object sender, EventArgs e)
         {
@@ -184,7 +301,7 @@ namespace WinFormsApp1
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            UserControl userControl = new UserControl2();
+            UserControl userControl = new TodoList();
             StartFadeTransition(userControl);
         }
 
@@ -196,7 +313,7 @@ namespace WinFormsApp1
 
         private void btn4_Click(object sender, EventArgs e)
         {
-            UserControl userControl = new UserControl4();
+            UserControl userControl = new ScheduleList();
             StartFadeTransition(userControl);
         }
     }

@@ -34,20 +34,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(53, 0);
+            label1.Location = new Point(41, 0);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(39, 15);
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
             // calendarDate
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             Controls.Add(label1);
+            Margin = new Padding(2);
             Name = "calendarDate";
-            Size = new Size(80, 30);
+            Size = new Size(75, 22);
             Click += calendarDate_Click;
             MouseEnter += calendarDate_MouseEnter;
             MouseLeave += calendarDate_MouseLeave;

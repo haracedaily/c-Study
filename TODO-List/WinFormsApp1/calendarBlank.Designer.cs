@@ -32,11 +32,12 @@
             // 
             // calendarBlank
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "calendarBlank";
-            Size = new Size(80, 30);
+            Size = new Size(75, 22);
             ResumeLayout(false);
         }
 

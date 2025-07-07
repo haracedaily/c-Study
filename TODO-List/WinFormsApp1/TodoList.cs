@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class UserControl4 : UserControl
+    public partial class TodoList : UserControl
     {
-        public UserControl4()
+        public TodoList()
         {
             InitializeComponent();
         }

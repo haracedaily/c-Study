@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Supabase.Core.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,11 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace WinFormsApp1
 {
-    public partial class UserControl2 : UserControl
+    public partial class ScheduleList : UserControl
     {
         int calendarYear; // 연도와 월을 저장할 변수
         int calendarMonth;
-        public UserControl2()
+        public ScheduleList()
         {
             InitializeComponent();
             comboBox1.DrawMode = DrawMode.OwnerDrawFixed;
@@ -114,7 +115,7 @@ namespace WinFormsApp1
             if (clickedDate != null)
             {
                 // 클릭된 날짜에 대한 처리 로직을 여기에 추가합니다.
-                MessageBox.Show($"선택한 날짜: {calendarYear}년 {calendarMonth}월 {clickedDate.label1.Text}일");
+                //MessageBox.Show($"선택한 날짜: {calendarYear}년 {calendarMonth}월 {clickedDate.label1.Text}일");
                 selectDate.Text = $"{calendarYear}년 {calendarMonth}월 {clickedDate.label1.Text}일"; // 선택한 날짜 표시
             }
         }
@@ -128,7 +129,7 @@ namespace WinFormsApp1
             else
                 calendarMonth++;
 
-
+            
             calendarTitle.Text = $"{calendarYear}년 {calendarMonth}월";
             calendarPan.Visible = false; // 달력 패널을 보이도록 설정
             calendarPan.Controls.Clear(); // 이전 달력 내용 제거

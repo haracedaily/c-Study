@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class UserControl4
+    partial class TodoList
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -34,20 +34,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("온글잎 공부잘하자나", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            label1.Location = new Point(25, 20);
+            label1.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            label1.Location = new Point(23, 18);
             label1.Name = "label1";
-            label1.Size = new Size(51, 33);
+            label1.Size = new Size(88, 29);
             label1.TabIndex = 1;
-            label1.Text = "일정";
+            label1.Text = "TODO";
             // 
             // UserControl4
             // 
-            AutoScaleDimensions = new SizeF(7.5F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label1);
             Name = "UserControl4";
-            Size = new Size(650, 450);
+            Size = new Size(607, 397);
             ResumeLayout(false);
             PerformLayout();
         }
