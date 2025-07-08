@@ -58,6 +58,11 @@ namespace WinFormsApp1
             DateTime today = DateTime.Now;
             calendarYear = today.Year;
             calendarMonth = today.Month;
+            draw_calendar(); // 달력 그리기 메서드 호출
+
+        }
+        private void draw_calendar()
+        {
             int daysInMonth = DateTime.DaysInMonth(calendarYear, calendarMonth);
             int firstDayOfWeek = (int)new DateTime(calendarYear, calendarMonth, 1).DayOfWeek;
             calendarTitle.Text = $"{calendarYear}년 {calendarMonth}월"; // 달력 제목 설정
@@ -75,7 +80,6 @@ namespace WinFormsApp1
                 calendarPan.Controls.Add(dateControl);
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (calendarMonth == 1)
@@ -91,21 +95,7 @@ namespace WinFormsApp1
             calendarPan.Visible = false; // 달력 패널을 보이도록 설정
             calendarPan.Controls.Clear(); // 이전 달력 내용 제거
             calendarPan.Visible = true; // 달력 패널을 다시 보이도록 설정
-            int daysInMonth = DateTime.DaysInMonth(calendarYear, calendarMonth);
-            int firstDayOfWeek = (int)new DateTime(calendarYear, calendarMonth, 1).DayOfWeek;
-            // 달력의 첫 번째 날을 표시하기 위한 위치 계산
-            for (int i = 1; i <= firstDayOfWeek; i++)
-            {
-                calendarBlank blank = new calendarBlank();
-                calendarPan.Controls.Add(blank);
-            }
-            for (int day = 1; day <= daysInMonth; day++)
-            {
-                calendarDate dateControl = new calendarDate();
-                dateControl.OnDateClick += CalendarDate_OnClick;
-                dateControl.SetDate(day);
-                calendarPan.Controls.Add(dateControl);
-            }
+            draw_calendar(); // 달력 다시 그리기
 
         }
 
@@ -134,21 +124,7 @@ namespace WinFormsApp1
             calendarPan.Visible = false; // 달력 패널을 보이도록 설정
             calendarPan.Controls.Clear(); // 이전 달력 내용 제거
             calendarPan.Visible = true; // 달력 패널을 다시 보이도록 설정
-            int daysInMonth = DateTime.DaysInMonth(calendarYear, calendarMonth);
-            int firstDayOfWeek = (int)new DateTime(calendarYear, calendarMonth, 1).DayOfWeek;
-            // 달력의 첫 번째 날을 표시하기 위한 위치 계산
-            for (int i = 1; i <= firstDayOfWeek; i++)
-            {
-                calendarBlank blank = new calendarBlank();
-                calendarPan.Controls.Add(blank);
-            }
-            for (int day = 1; day <= daysInMonth; day++)
-            {
-                calendarDate dateControl = new calendarDate();
-                dateControl.OnDateClick += CalendarDate_OnClick;
-                dateControl.SetDate(day);
-                calendarPan.Controls.Add(dateControl);
-            }
+            draw_calendar(); // 달력 다시 그리기
         }
     }
 }
