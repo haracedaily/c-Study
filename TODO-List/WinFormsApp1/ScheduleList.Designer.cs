@@ -65,7 +65,6 @@
             calendarPan.Name = "calendarPan";
             calendarPan.Size = new Size(565, 190);
             calendarPan.TabIndex = 1;
-            //calendarPan.Paint += this.calendarPan_Paint;
             // 
             // label3
             // 
@@ -142,22 +141,24 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.White;
             button1.Location = new Point(496, 19);
             button1.Name = "button1";
             button1.Size = new Size(28, 26);
             button1.TabIndex = 11;
             button1.Text = "<";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.White;
             button2.Location = new Point(529, 19);
             button2.Name = "button2";
             button2.Size = new Size(28, 26);
             button2.TabIndex = 12;
             button2.Text = ">";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // textBox1
@@ -170,12 +171,13 @@
             // 
             // btn3
             // 
+            btn3.BackColor = Color.White;
             btn3.Location = new Point(500, 366);
             btn3.Name = "btn3";
             btn3.Size = new Size(88, 26);
             btn3.TabIndex = 14;
             btn3.Text = "저장";
-            btn3.UseVisualStyleBackColor = true;
+            btn3.UseVisualStyleBackColor = false;
             // 
             // label2
             // 

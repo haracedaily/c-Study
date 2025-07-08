@@ -98,3 +98,5 @@ C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.cs
 C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.ScheduleList.resources
 C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.TodoList.resources
 C:\check\C#Study\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinForms.E4050A35.Up2Date
+E:\schedule\TODO-List\WinFormsApp1\bin\Debug\net8.0-windows\MaterialSkin.dll
+E:\schedule\TODO-List\WinFormsApp1\obj\Debug\net8.0-windows\WinFormsApp1.Properties.Resources.resources

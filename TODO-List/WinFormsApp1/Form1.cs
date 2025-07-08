@@ -134,12 +134,12 @@ namespace WinFormsApp1
                     //}
                 });
 
+                this.MaximizeBox = false; // 최대화 버튼 비활성화
 
-                
 
             }
 
-
+           
 
         }
 
