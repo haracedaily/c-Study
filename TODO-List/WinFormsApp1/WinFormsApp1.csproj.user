@@ -19,7 +19,7 @@
     <Compile Update="ScheduleList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControl3.cs">
+    <Compile Update="timeTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="TodoList.cs">

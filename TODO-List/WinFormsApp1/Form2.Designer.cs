@@ -58,6 +58,7 @@
             id.Name = "id";
             id.Size = new Size(171, 23);
             id.TabIndex = 1;
+            id.Text = "user";
             // 
             // pw
             // 
@@ -66,6 +67,7 @@
             pw.Name = "pw";
             pw.Size = new Size(171, 23);
             pw.TabIndex = 2;
+            pw.Text = "1234";
             pw.UseSystemPasswordChar = true;
             // 
             // panel1

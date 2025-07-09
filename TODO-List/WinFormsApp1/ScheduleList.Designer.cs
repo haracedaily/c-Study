@@ -178,6 +178,7 @@
             btn3.TabIndex = 14;
             btn3.Text = "저장";
             btn3.UseVisualStyleBackColor = false;
+            btn3.Click += btn3_Click;
             // 
             // label2
             // 

@@ -1,18 +1,16 @@
 using DotNetEnv;
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
+using static Supabase.Postgrest.Constants;
 using System.Security.Policy;
 using System.Windows.Forms;
-using static Supabase.Postgrest.Constants;
 using static WinFormsApp1.Form1;
 
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
-        private string url;
-        private string key;
-        private Supabase.Client supa;
+        Supabase.Client supa = DataBase.GetInstance().supa;
 
         [Table("users")]
         public class Users : BaseModel
@@ -27,7 +25,7 @@ namespace WinFormsApp1
             [Column("created_at")]
             public DateTime CreatedAt { get; set; }
         }
-        private static string? _id;
+        public static string? _id;
         
         private bool isCollapsed = false;
         public class LoginEventArgs : EventArgs
@@ -96,10 +94,9 @@ namespace WinFormsApp1
         //시작 run start
         public Form1()
         {
-            Env.Load(); // .env 파일 로드
+            
             InitializeComponent();
-            url = Environment.GetEnvironmentVariable("SUPABASE_URL");
-            key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
+            
             UserControl1 userControl1 = new UserControl1();
             StartFadeTransition(userControl1);
             //userControl.Dock = DockStyle.Fill; // UserControl을 패널에 꽉 차게 설정
@@ -108,38 +105,7 @@ namespace WinFormsApp1
             //userControl.Location = new Point(200, 100); // UserControl의 위치 설정
             //userControl.BringToFront(); // UserControl을 최상위로 가져오기
             
-            if (url is not null && key is not null)
-            {
-                var options = new Supabase.SupabaseOptions
-                {
-                    AutoConnectRealtime = true
-                };
-                supa = new Supabase.Client(url, key, options);
-                
-                // Supabase 초기화 (비동기)
-                Task.Run(async () =>
-                {
-                    await supa.InitializeAsync();
-                    // DB 연결 테스트: 예를 들어 users 테이블 조회
-                    //var resp = await supa.From<User>().Get();
-                    ////MessageBox.Show(resp.Models.ToString());
-                    //foreach (var u in resp.Models)
-                    //{
-                    //    MessageBox.Show(u.ToString());
-                    //}
-                    //if (resp.Models != null)
-                    //{
-                    //    foreach (var item in resp.Models)
-                    //        Console.WriteLine(item);
-                    //}
-                });
-
-                this.MaximizeBox = false; // 최대화 버튼 비활성화
-
-
-            }
-
-           
+            this.MaximizeBox = false; // 최대화 버튼 비활성화
 
         }
 
@@ -239,6 +205,7 @@ namespace WinFormsApp1
             if (isCollapsed)
             {
                 panel1.Width = 155; // 펼치기
+                status.Visible = true; // 상태 표시줄 너비 조정
                 foreach (Control ctrl in panel1.Controls)
                 {
                     if (ctrl != sideBtn) // sideBtn은 제외
@@ -268,7 +235,7 @@ namespace WinFormsApp1
                 isCollapsed = true;
                 sideBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
                 sideBtn.Location = new Point(36 - 30 - 3, 3);
-
+                status.Visible = false;
                 foreach (Control ctrl in panel1.Controls)
                 {
                     if (ctrl != sideBtn) // sideBtn은 제외
@@ -307,7 +274,7 @@ namespace WinFormsApp1
 
         private void btn3_Click(object sender, EventArgs e)
         {
-            UserControl userControl = new UserControl3();
+            UserControl userControl = new timeTable();
             StartFadeTransition(userControl);
         }
 

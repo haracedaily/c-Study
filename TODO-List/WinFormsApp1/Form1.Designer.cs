@@ -59,7 +59,7 @@
             // status
             // 
             status.AutoSize = true;
-            status.Location = new Point(-1, 305);
+            status.Location = new Point(6, 317);
             status.Name = "status";
             status.Size = new Size(0, 15);
             status.TabIndex = 6;

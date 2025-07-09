@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
+            calendarIcon = new Label();
             SuspendLayout();
             // 
             // label1
@@ -41,11 +42,20 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
+            // calendarIcon
+            // 
+            calendarIcon.AutoSize = true;
+            calendarIcon.Location = new Point(11, 3);
+            calendarIcon.Name = "calendarIcon";
+            calendarIcon.Size = new Size(0, 15);
+            calendarIcon.TabIndex = 1;
+            // 
             // calendarDate
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
+            Controls.Add(calendarIcon);
             Controls.Add(label1);
             Margin = new Padding(2);
             Name = "calendarDate";
@@ -60,5 +70,6 @@
         #endregion
 
         public Label label1;
+        private Label calendarIcon;
     }
 }
