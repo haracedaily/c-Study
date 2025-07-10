@@ -131,13 +131,13 @@ namespace WinFormsApp1
                 dateControl.OnDateClick += CalendarDate_OnClick;
                 dateControl.SetDate(day);
                 var matched = entries.FirstOrDefault(x =>
-                    x.date == day
+                    x.date == day 
                 );
 
                 if (matched != null)
                 {
                     // calendarDate 컨트롤에 정보 전달 (예: 색상, 텍스트 등)
-                    dateControl.SetColor(Color.Bisque);
+                    dateControl.SetColor(Color.LightBlue);
                     dateControl.setIcon(matched.icon);
                     dateControl.setData(matched);
                 }
@@ -205,15 +205,34 @@ namespace WinFormsApp1
 
         async private void btn3_Click(object sender, EventArgs e)
         {
-            var data = new calendarData
+            if (Form1._id == null)
             {
-                year = calendarYear,
-                month = calendarMonth,
-                date = calendarDate,
-                plan = textBox1.Text,
-                user_id = Form1._id,
-                icon = comboBox1.SelectedItem.ToString()
-            };
+                MessageBox.Show("로그인 이후 사용가능합니다.");
+                return;
+            }
+            else if(calendarDate == 0)
+            {
+                MessageBox.Show("날짜를 선택해주세요.");
+                return;
+            }
+            else if (string.IsNullOrEmpty(textBox1.Text))
+            {
+                MessageBox.Show("계획을 입력해주세요.");
+                return;
+            } else if (comboBox1.SelectedItem == null || comboBox1.SelectedItem.ToString() == "")
+            {
+                MessageBox.Show("아이콘을 선택해주세요");
+                return;
+            }
+                var data = new calendarData
+                {
+                    year = calendarYear,
+                    month = calendarMonth,
+                    date = calendarDate,
+                    plan = textBox1.Text,
+                    user_id = Form1._id,
+                    icon = comboBox1.SelectedItem.ToString()
+                };
             var result = await supa.From<calendarData>().OnConflict("year,month,date,user_id")
                            .Upsert(data);
             draw_calendar();

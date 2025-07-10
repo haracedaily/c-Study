@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            timetableLayout = new TableLayoutPanel();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -44,6 +44,15 @@
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            label16 = new Label();
+            label17 = new Label();
+            titlebox = new TextBox();
+            memobox = new TextBox();
+            label18 = new Label();
+            label19 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -56,36 +65,36 @@
             label1.TabIndex = 1;
             label1.Text = "시간표";
             // 
-            // tableLayoutPanel1
+            // timetableLayout
             // 
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9999962F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Location = new Point(82, 86);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 9;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 18F));
-            tableLayoutPanel1.Size = new Size(491, 255);
-            tableLayoutPanel1.TabIndex = 2;
-            tableLayoutPanel1.Click += tableClick;
+            timetableLayout.ColumnCount = 5;
+            timetableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 19.9999962F));
+            timetableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            timetableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            timetableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            timetableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            timetableLayout.Location = new Point(82, 75);
+            timetableLayout.Name = "timetableLayout";
+            timetableLayout.RowCount = 9;
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1111107F));
+            timetableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 18F));
+            timetableLayout.Size = new Size(491, 255);
+            timetableLayout.TabIndex = 2;
+            timetableLayout.MouseClick += timetableLayout_MouseClick;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
-            label8.Location = new Point(501, 58);
+            label8.Location = new Point(501, 53);
             label8.Name = "label8";
             label8.Size = new Size(43, 15);
             label8.TabIndex = 15;
@@ -95,7 +104,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
-            label7.Location = new Point(404, 58);
+            label7.Location = new Point(404, 53);
             label7.Name = "label7";
             label7.Size = new Size(43, 15);
             label7.TabIndex = 14;
@@ -105,7 +114,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
-            label6.Location = new Point(304, 58);
+            label6.Location = new Point(304, 53);
             label6.Name = "label6";
             label6.Size = new Size(43, 15);
             label6.TabIndex = 13;
@@ -115,7 +124,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
-            label5.Location = new Point(205, 58);
+            label5.Location = new Point(205, 53);
             label5.Name = "label5";
             label5.Size = new Size(43, 15);
             label5.TabIndex = 12;
@@ -125,7 +134,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("맑은 고딕", 9F, FontStyle.Bold);
-            label4.Location = new Point(107, 58);
+            label4.Location = new Point(107, 53);
             label4.Name = "label4";
             label4.Size = new Size(43, 15);
             label4.TabIndex = 11;
@@ -134,7 +143,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(14, 262);
+            label9.Location = new Point(14, 251);
             label9.Name = "label9";
             label9.Size = new Size(38, 15);
             label9.TabIndex = 22;
@@ -143,7 +152,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(14, 234);
+            label2.Location = new Point(14, 223);
             label2.Name = "label2";
             label2.Size = new Size(38, 15);
             label2.TabIndex = 21;
@@ -152,7 +161,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(14, 206);
+            label3.Location = new Point(14, 195);
             label3.Name = "label3";
             label3.Size = new Size(38, 15);
             label3.TabIndex = 20;
@@ -161,7 +170,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(14, 178);
+            label10.Location = new Point(14, 167);
             label10.Name = "label10";
             label10.Size = new Size(38, 15);
             label10.TabIndex = 19;
@@ -170,7 +179,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(14, 150);
+            label11.Location = new Point(14, 139);
             label11.Name = "label11";
             label11.Size = new Size(38, 15);
             label11.TabIndex = 18;
@@ -179,7 +188,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(14, 122);
+            label12.Location = new Point(14, 111);
             label12.Name = "label12";
             label12.Size = new Size(38, 15);
             label12.TabIndex = 17;
@@ -188,7 +197,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(14, 93);
+            label13.Location = new Point(14, 82);
             label13.Name = "label13";
             label13.Size = new Size(38, 15);
             label13.TabIndex = 16;
@@ -197,7 +206,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(14, 319);
+            label14.Location = new Point(14, 308);
             label14.Name = "label14";
             label14.Size = new Size(38, 15);
             label14.TabIndex = 24;
@@ -206,16 +215,102 @@
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(14, 291);
+            label15.Location = new Point(14, 280);
             label15.Name = "label15";
             label15.Size = new Size(38, 15);
             label15.TabIndex = 23;
             label15.Text = "16:00";
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(82, 336);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(101, 23);
+            comboBox1.TabIndex = 25;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(82, 367);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(101, 23);
+            comboBox2.TabIndex = 26;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(14, 339);
+            label16.Name = "label16";
+            label16.Size = new Size(31, 15);
+            label16.TabIndex = 27;
+            label16.Text = "요일";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(14, 370);
+            label17.Name = "label17";
+            label17.Size = new Size(31, 15);
+            label17.TabIndex = 28;
+            label17.Text = "시간";
+            // 
+            // titlebox
+            // 
+            titlebox.Location = new Point(275, 336);
+            titlebox.Name = "titlebox";
+            titlebox.Size = new Size(100, 23);
+            titlebox.TabIndex = 29;
+            // 
+            // memobox
+            // 
+            memobox.Location = new Point(275, 367);
+            memobox.Name = "memobox";
+            memobox.Size = new Size(198, 23);
+            memobox.TabIndex = 30;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(205, 339);
+            label18.Name = "label18";
+            label18.Size = new Size(43, 15);
+            label18.TabIndex = 31;
+            label18.Text = "일정명";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(205, 370);
+            label19.Name = "label19";
+            label19.Size = new Size(31, 15);
+            label19.TabIndex = 32;
+            label19.Text = "내용";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.Location = new Point(498, 366);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 33;
+            button1.Text = "저장";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // timeTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button1);
+            Controls.Add(label19);
+            Controls.Add(label18);
+            Controls.Add(memobox);
+            Controls.Add(titlebox);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
             Controls.Add(label14);
             Controls.Add(label15);
             Controls.Add(label9);
@@ -230,7 +325,7 @@
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(timetableLayout);
             Controls.Add(label1);
             Name = "timeTable";
             Size = new Size(607, 397);
@@ -241,7 +336,7 @@
         #endregion
 
         private Label label1;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel timetableLayout;
         private Label label8;
         private Label label7;
         private Label label6;
@@ -256,5 +351,14 @@
         private Label label13;
         private Label label14;
         private Label label15;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Label label16;
+        private Label label17;
+        private TextBox titlebox;
+        private TextBox memobox;
+        private Label label18;
+        private Label label19;
+        private Button button1;
     }
 }

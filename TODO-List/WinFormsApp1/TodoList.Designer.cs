@@ -31,7 +31,13 @@
             label1 = new Label();
             textBox1 = new TextBox();
             button1 = new Button();
-            TODO = new ListBox();
+            dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewCheckBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            button2 = new Button();
+            button3 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -61,27 +67,76 @@
             button1.Text = "추가";
             button1.UseMnemonic = false;
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // TODO
+            // dataGridView1
             // 
-            TODO.FormattingEnabled = true;
-            TODO.ItemHeight = 15;
-            TODO.Items.AddRange(new object[] { "TODO" });
-            TODO.Location = new Point(23, 114);
-            TODO.Name = "TODO";
-            TODO.Size = new Size(533, 244);
-            TODO.TabIndex = 4;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView1.Location = new Point(23, 118);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(533, 223);
+            dataGridView1.TabIndex = 4;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "선택";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Resizable = DataGridViewTriState.True;
+            Column1.SortMode = DataGridViewColumnSortMode.Automatic;
+            Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "TODO";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 310;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "완료여부";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Resizable = DataGridViewTriState.True;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.White;
+            button2.Location = new Point(458, 347);
+            button2.Name = "button2";
+            button2.Size = new Size(98, 24);
+            button2.TabIndex = 5;
+            button2.Text = "완료";
+            button2.UseMnemonic = false;
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.White;
+            button3.Location = new Point(354, 347);
+            button3.Name = "button3";
+            button3.Size = new Size(98, 24);
+            button3.TabIndex = 6;
+            button3.Text = "삭제";
+            button3.UseMnemonic = false;
+            button3.UseVisualStyleBackColor = false;
             // 
             // TodoList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(TODO);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(dataGridView1);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Name = "TodoList";
             Size = new Size(607, 397);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -91,6 +146,11 @@
         private Label label1;
         private TextBox textBox1;
         private Button button1;
-        private ListBox TODO;
+        private DataGridView dataGridView1;
+        private DataGridViewCheckBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private Button button2;
+        private Button button3;
     }
 }
