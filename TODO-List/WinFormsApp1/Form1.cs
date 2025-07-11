@@ -104,9 +104,15 @@ namespace WinFormsApp1
             //userControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             //userControl.Location = new Point(200, 100); // UserControl의 위치 설정
             //userControl.BringToFront(); // UserControl을 최상위로 가져오기
-            
+            this.Shown += form1_shown;
+
             this.MaximizeBox = false; // 최대화 버튼 비활성화
 
+        }
+
+        private void form1_shown(object sender, EventArgs e)
+        {
+            loginBtn.PerformClick();
         }
 
         private void button6_Click(object sender, EventArgs e)

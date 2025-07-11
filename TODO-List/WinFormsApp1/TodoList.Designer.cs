@@ -35,6 +35,7 @@
             Column1 = new DataGridViewCheckBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
             button2 = new Button();
             button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -72,18 +73,18 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            dataGridView1.EditMode = DataGridViewEditMode.EditOnEnter;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
+            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridView1.Location = new Point(23, 118);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(533, 223);
             dataGridView1.TabIndex = 4;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // Column1
             // 
             Column1.HeaderText = "선택";
             Column1.Name = "Column1";
-            Column1.ReadOnly = true;
             Column1.Resizable = DataGridViewTriState.True;
             Column1.SortMode = DataGridViewColumnSortMode.Automatic;
             Column1.Width = 80;
@@ -92,15 +93,19 @@
             // 
             Column2.HeaderText = "TODO";
             Column2.Name = "Column2";
-            Column2.ReadOnly = true;
             Column2.Width = 310;
             // 
             // Column3
             // 
             Column3.HeaderText = "완료여부";
             Column3.Name = "Column3";
-            Column3.ReadOnly = true;
             Column3.Resizable = DataGridViewTriState.True;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "id";
+            Column4.Name = "Column4";
+            Column4.Visible = false;
             // 
             // button2
             // 
@@ -112,6 +117,7 @@
             button2.Text = "완료";
             button2.UseMnemonic = false;
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -123,6 +129,7 @@
             button3.Text = "삭제";
             button3.UseMnemonic = false;
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // TodoList
             // 
@@ -147,10 +154,11 @@
         private TextBox textBox1;
         private Button button1;
         private DataGridView dataGridView1;
+        private Button button2;
+        private Button button3;
         private DataGridViewCheckBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
-        private Button button2;
-        private Button button3;
+        private DataGridViewTextBoxColumn Column4;
     }
 }
