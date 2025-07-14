@@ -107,6 +107,8 @@ namespace WinFormsApp1
         }
         async private void draw_calendar()
         {
+            button1.Enabled = false;
+            button2.Enabled = false;
             comboBox1.SelectedItem = ""; // 선택한 날짜의 아이콘 설정
             textBox1.Text = ""; // 선택한 날짜의 계획 설정
             var result = await supa.From<calendarData>()
@@ -143,6 +145,9 @@ namespace WinFormsApp1
                 }
                 calendarPan.Controls.Add(dateControl);
             }
+
+            button1.Enabled = true;
+            button2.Enabled = true;
         }
         private void button1_Click(object sender, EventArgs e)
         {
